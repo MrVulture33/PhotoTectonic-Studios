@@ -14,7 +14,7 @@
 #define PLAYER_PHYSICAL_HEIGHT_CROUCH	20
 
 //Horizontal speed and vertical speed while falling down
-#define PLAYER_SPEED			2
+#define PLAYER_SPEED			1
 
 //Vertical speed while on a ladder
 #define PLAYER_LADDER_SPEED		1
@@ -23,7 +23,7 @@
 #define ANIM_LADDER_DELAY		(2*ANIM_DELAY)
 
 //When jumping, initial jump speed and maximum falling speed
-#define PLAYER_JUMP_FORCE		10
+#define PLAYER_JUMP_FORCE		8
 
 //Frame delay for updating the jump velocity
 #define PLAYER_JUMP_DELAY		2
@@ -113,6 +113,7 @@ public:
 	void SetGameEnd(bool state);
 
 	void SetShield();
+	void SetMorningstar();
 
 	int GetXPos();
 	int GetYPos();
@@ -168,6 +169,7 @@ private:
 	void Attack();
 	void CrouchAttack();
 	bool GetIsHoldingShield() const;
+	bool GetHasMorningstar() const;
 	//void SetWeapon(Weapon w);
 	////Weapon EquipWhip();
 	////Weapon EquipMorningStar();
@@ -184,6 +186,7 @@ private:
 	Look look;
 	int jump_delay;
 	bool isHoldingShield;
+	bool hasMorningstar;
 	Equipment equipment;
 
 	TileMap *map;
@@ -199,9 +202,6 @@ private:
 	bool wasCrouching;
 
 	bool godMode;
-
-
-
 
 	Sound shieldSFX;
 	Sound attackSFX;

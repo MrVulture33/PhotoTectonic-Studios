@@ -65,8 +65,9 @@ int Object::Points() const
 
 int Object::Equip() const
 {
-	if (type == ObjectType::SHIELD)		return EQUIPMENT_NUMBER_SHIELD;
-	if (type == ObjectType::ORB) 		return EQUIPMENT_WINNING_ORB;
+	if (type == ObjectType::SHIELD)		 return EQUIPMENT_NUMBER_SHIELD;
+	if (type == ObjectType::MORNINGSTAR) return EQUPMENT_NUMBER_MORNINGSTAR;
+	if (type == ObjectType::ORB) 	   	 return EQUIPMENT_WINNING_ORB;
 }
 
 int Object::ObjectNum() const
