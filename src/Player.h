@@ -124,6 +124,7 @@ public:
 	void Release();
 
 	Equipment SetEquipment(int equipNum);
+	void GrabObject(int object);
 
 
 private:
@@ -198,6 +199,16 @@ private:
 	bool wasCrouching;
 
 	bool godMode;
+
+
+
+
+	Sound shieldSFX;
+	Sound attackSFX;
+	Sound moneyBagSFX;
+	Sound orbSFX;
+	bool unloadedSounds;
+
 
 };
 

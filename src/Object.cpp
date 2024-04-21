@@ -47,10 +47,17 @@ int Object::Points() const
 {
 	//if (type == ObjectType::APPLE)		return POINTS_APPLE;
 	//else if (type == ObjectType::CHILI)	return POINTS_CHILI;
-	if (type == ObjectType::WHITEBAG)	return POINTS_WHITEBAG;
-	else if (type == ObjectType::BLUEBAG)	return POINTS_BLUEBAG;
+	if (type == ObjectType::WHITEBAG) 
+	{
+		return POINTS_WHITEBAG;
+	}
+	else if (type == ObjectType::BLUEBAG) 
+	{
+		return POINTS_BLUEBAG;
+	}
 	else
 	{
+
 		LOG("Internal error: object type invalid when giving points");
 		return 0;
 	}
@@ -59,8 +66,18 @@ int Object::Points() const
 int Object::Equip() const
 {
 	if (type == ObjectType::SHIELD)		return EQUIPMENT_NUMBER_SHIELD;
-	if (type == ObjectType::ORB)		return EQUIPMENT_WINNING_ORB;
+	if (type == ObjectType::ORB) 		return EQUIPMENT_WINNING_ORB;
 }
+
+int Object::ObjectNum() const
+{
+	if (type == ObjectType::WHITEBAG || type == ObjectType::BLUEBAG)
+		return 1;
+	else if (type == ObjectType::ORB)
+		return 2;
+}
+
+
 
 
 

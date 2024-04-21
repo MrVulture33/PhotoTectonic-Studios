@@ -3,6 +3,7 @@
 #include "ResourceManager.h"
 #include <stdio.h>
 
+
 Game::Game()
 {
     state = GameState::INITIAL_SCREEN;
@@ -60,6 +61,7 @@ AppStatus Game::Initialise(float scale)
     //Disable the escape key to quit functionality
     SetExitKey(0);
 
+
     return AppStatus::OK;
 }
 AppStatus Game::LoadResources()
@@ -89,12 +91,19 @@ AppStatus Game::LoadResources()
         return AppStatus::ERROR;
     }
     img_ending = data.GetTexture(Resource::IMG_ENDING);
+
+    Ost2VampireKiller = LoadMusicStream("music/test.mp3");
+    Ost2VampireKiller.looping = true;
+    //SetMusicVolume(Ost2VampireKiller, 1.0);
+
     
     return AppStatus::OK;
 }
 AppStatus Game::BeginPlay()
 {
     scene = new Scene();
+
+    PlayMusicStream(Ost2VampireKiller);
     if (scene == nullptr)
     {
         LOG("Failed to allocate memory for Scene");
@@ -111,6 +120,7 @@ AppStatus Game::BeginPlay()
 void Game::FinishPlay()
 {
     scene->Release();
+    StopMusicStream(Ost2VampireKiller);
     delete scene;
     scene = nullptr;
 }
@@ -139,6 +149,7 @@ AppStatus Game::Update()
             {
                 if(BeginPlay() != AppStatus::OK) return AppStatus::ERROR;
                 state = GameState::PLAYING;
+                //PlayMusicStream(Ost2VampireKiller); //No sé si ponerlo en Game o Scene
             }
             break;
 
@@ -147,27 +158,35 @@ AppStatus Game::Update()
             {
                 FinishPlay();
                 state = GameState::MAIN_MENU;
+                //StopMusicStream(Ost2VampireKiller);
             }
             else if(IsKeyPressed(KEY_F3))
             {
                 state = GameState::GAME_OVER;
+                //StopMusicStream(Ost2VampireKiller);
             }
             else if (scene->GameOver() == true)
             {
                 state = GameState::GAME_OVER;
+                //StopMusicStream(Ost2VampireKiller);
             }
             else if (IsKeyPressed(KEY_F4))
             {
                 state = GameState::ENDING;
+                //StopMusicStream(Ost2VampireKiller);
             }
             else if (scene->GameEnd() == true)
             {
                 state = GameState::ENDING;
+                //StopMusicStream(Ost2VampireKiller);
             }
             else
             {
                 //Game logic
                 scene->Update();
+                UpdateMusicStream(Ost2VampireKiller);
+                return AppStatus::OK;
+
             }
             break;
 
@@ -241,11 +260,16 @@ void Game::Cleanup()
     CloseAudioDevice();
     UnloadResources();
     CloseWindow();
-}
+}         
 void Game::UnloadResources()
 {
     ResourceManager& data = ResourceManager::Instance();
     data.ReleaseTexture(Resource::IMG_MENU);
+    data.ReleaseTexture(Resource::IMG_INITIAL);
+    data.ReleaseTexture(Resource::IMG_DESC);
+    data.ReleaseTexture(Resource::IMG_ENDING);
+
 
     UnloadRenderTexture(target);
+    UnloadMusicStream(Ost2VampireKiller);
 }

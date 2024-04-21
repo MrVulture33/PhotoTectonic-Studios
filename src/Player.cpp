@@ -26,6 +26,7 @@ Player::Player(const Point& p, State s, Look view) :
 	gameEnd = false;
 	wasCrouching = false;
 	//tmp 
+	unloadedSounds = false;
 }
 Player::~Player()
 {
@@ -157,55 +158,55 @@ AppStatus Player::Initialise()
 
 	// Jumping animations
 	sprite->SetAnimationDelay((int)PlayerAnim::FALLING_RIGHT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::FALLING_RIGHT, { 4 * n, 0, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::FALLING_RIGHT, { 3 * n, 0, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::FALLING_LEFT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::FALLING_LEFT, { 4 * n, 0, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::FALLING_LEFT, { 3 * n, 0, -n, h });
 
 	sprite->SetAnimationDelay((int)PlayerAnim::JUMPING_RIGHT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_RIGHT, { 4 * n, 0, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_RIGHT, { 3 * n, 0, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::JUMPING_LEFT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_LEFT, { 4 * n, 0, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_LEFT, { 3 * n, 0, -n, h });
 
 	sprite->SetAnimationDelay((int)PlayerAnim::LEVITATING_RIGHT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_RIGHT, { 4 * n, 0, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_RIGHT, { 3 * n, 0, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::LEVITATING_LEFT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_LEFT, { 4 * n, 0, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_LEFT, { 3 * n, 0, -n, h });
 
 
 	sprite->SetAnimationDelay((int)PlayerAnim::FALLING_RIGHT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::FALLING_RIGHT_SHIELD, { 4* n, h, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::FALLING_RIGHT_SHIELD, { 3 * n, h, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::FALLING_LEFT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::FALLING_LEFT_SHIELD, { 4 * n, h, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::FALLING_LEFT_SHIELD, { 3 * n, h, -n, h });
 
 	sprite->SetAnimationDelay((int)PlayerAnim::JUMPING_RIGHT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_RIGHT_SHIELD, { 4 * n, h, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_RIGHT_SHIELD, { 3 * n, h, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::JUMPING_LEFT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_LEFT_SHIELD, { 4 * n, h, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_LEFT_SHIELD, { 3 * n, h, -n, h });
 
 	sprite->SetAnimationDelay((int)PlayerAnim::LEVITATING_RIGHT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_RIGHT_SHIELD, { 4 * n, h, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_RIGHT_SHIELD, { 3 * n, h, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::LEVITATING_LEFT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_LEFT_SHIELD, { 4 * n, h, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_LEFT_SHIELD, { 3 * n, h, -n, h });
 
 	// Death animations
 	sprite->SetAnimationDelay((int)PlayerAnim::DYING_RIGHT, ANIM_DELAY);
 	for (i = 0; i < 2; ++i)
 	{
-		sprite->AddKeyFrame((int)PlayerAnim::DYING_RIGHT, { ((float)i + 7) * n, 0, n, h });
+		sprite->AddKeyFrame((int)PlayerAnim::DYING_RIGHT, { ((float)i + 6) * n, 0, n, h });
 	}
-	sprite->AddKeyFrame((int)PlayerAnim::DYING_RIGHT, { ((float)i + 7) * n, 0, n * 2, h });
+	sprite->AddKeyFrame((int)PlayerAnim::DYING_RIGHT, { ((float)i + 6) * n, 0, n * 2, h });
 
 	sprite->SetAnimationDelay((int)PlayerAnim::DYING_LEFT, ANIM_DELAY);
 	for (i = 0; i < 2; ++i)
 	{
-		sprite->AddKeyFrame((int)PlayerAnim::DYING_LEFT, { ((float)i + 7) * n, 0, -n, h });
+		sprite->AddKeyFrame((int)PlayerAnim::DYING_LEFT, { ((float)i + 6) * n, 0, -n, h });
 	}
 	// TOASK: Same problem here, animation goes rightway
-	sprite->AddKeyFrame((int)PlayerAnim::DYING_LEFT, { ((float)i + 7) * n, 0, -n * 2 , h });
+	sprite->AddKeyFrame((int)PlayerAnim::DYING_LEFT, { ((float)i + 6) * n, 0, -n * 2 , h });
 
 	// Walking towards front animation
 	sprite->SetAnimationDelay((int)PlayerAnim::WALKING_INTO, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::WALKING_INTO, { 11 * n, 0, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::WALKING_INTO, { 10 * n, 0, n, h });
 
 
 	// WHIP Attacking animations
@@ -223,6 +224,7 @@ AppStatus Player::Initialise()
 	sprite->AddKeyFrame((int)PlayerAnim::ATTACKING_UPSTAIRS_LEFT_WHIP, { (float)0 * n, n * 10, -(n * 2) , h });
 	sprite->AddKeyFrame((int)PlayerAnim::ATTACKING_UPSTAIRS_LEFT_WHIP, { (float)2 * n, n * 10, -(n * 2) , h });
 	sprite->AddKeyFrame((int)PlayerAnim::ATTACKING_UPSTAIRS_LEFT_WHIP, { (float)4 * n, n * 10, -(n * 4) , h });
+
 
 	sprite->SetAnimationDelay((int)PlayerAnim::ATTACKING_DOWNSTAIRS_LEFT_WHIP, ANIM_DELAY);
 	sprite->AddKeyFrame((int)PlayerAnim::ATTACKING_DOWNSTAIRS_LEFT_WHIP, { (float)0 * n, n * 12, -(n * 2) , h });
@@ -266,6 +268,11 @@ AppStatus Player::Initialise()
 
 	sprite->SetAnimation((int)PlayerAnim::IDLE_RIGHT);
 
+
+	shieldSFX = LoadSound("sfx/24.wav");
+	attackSFX = LoadSound("sfx/08.wav");
+	moneyBagSFX = LoadSound("sfx/23.wav");
+	orbSFX = LoadSound("music/test1.mp3");
 
 	return AppStatus::OK;
 }
@@ -341,6 +348,18 @@ Equipment Player::SetEquipment(int equipNum)
 		return EquipShield();
 	}
 }
+void Player::GrabObject(int object)
+{
+	switch (object)
+	{
+	case 1:
+		PlaySound(moneyBagSFX);
+		break;
+	case 2:
+		PlaySound(orbSFX);
+		break;
+	}
+}
 Equipment Player::EquipWhip()
 {
 	return equipment = Equipment::WHIP;
@@ -357,6 +376,8 @@ Equipment Player::EquipShield()
 {
 	isHoldingShield = true;
 	Stop();
+	
+	PlaySound(shieldSFX);   // temporal approch
 	return equipment = Equipment::SHIELD;
 }
 Equipment Player::EquipAxe()
@@ -565,10 +586,9 @@ void Player::Attack()
 	//TODO: Add attacking SFX
 	// This works, but it will cause a memory leak.
 	//sfxList[8] = LoadSound("sfx/08.wav");
-	Sound attackSfx = LoadSound("sfx/08.wav");
-	PlaySound(attackSfx);
-
-
+	PlaySound(attackSFX);
+	
+	
 }
 
 void Player::ChangeHP(int value)
@@ -700,16 +720,18 @@ void Player::Update()
 	MoveX();
 	MoveY();
 	
-	if (IsKeyPressed(KEY_FIVE))
+	if (IsKeyPressed(KEY_F5))
 	{
+		if (!isHoldingShield)
+			PlaySound(shieldSFX);
 		isHoldingShield = !isHoldingShield;
 		Stop();
 	}
-	if (IsKeyPressed(KEY_SIX))
+	if (IsKeyPressed(KEY_F6))
 	{
 		ChangeHP(-10);
 	}
-	if (IsKeyPressed(KEY_SEVEN))
+	if (IsKeyPressed(KEY_F7))
 	{
 		ChangeHP(+10);
 	}
@@ -850,7 +872,7 @@ void Player::MoveY()
 				}
 					
 			}
-			else if (IsKeyPressed(KEY_EIGHT))
+			else if (IsKeyPressed(KEY_L))
 			{
 				Death();
 			}
@@ -972,11 +994,46 @@ void Player::DrawDebug(const Color& col) const
 	//TODO Change this so that the width and height are appropriate
 	DrawText(TextFormat("Position: (%d,%d)\nSize: %dx%d\nFrame: %dx%d", pos.x, pos.y, width, height, frame_width, frame_height), WINDOW_WIDTH-90, 0, 8, LIGHTGRAY);
 	DrawPixel(pos.x, pos.y, WHITE);
+
 }
 void Player::Release()
 {
+	//if (shieldSFX.stream.processor != NULL)
+	//{
+	//	UnloadSound(shieldSFX);
+
+	//}
+	//if (attackSFX.stream.processor != NULL)
+	//{
+	//	UnloadSound(attackSFX);
+
+	//}
+	//if (moneyBagSFX.stream.processor != NULL)
+	//{
+	//	UnloadSound(moneyBagSFX);
+	//}
+	//if (orbSFX.stream.processor != NULL)
+	//{
+	//	UnloadSound(orbSFX);
+	//}
+	if (!unloadedSounds)
+	{
+		UnloadSound(shieldSFX);
+		UnloadSound(attackSFX);
+		UnloadSound(moneyBagSFX);
+		UnloadSound(orbSFX);
+		unloadedSounds = true;
+	}
+
+
+
+
+	//UnloadSound(attackSFX);
 	ResourceManager& data = ResourceManager::Instance();
 	data.ReleaseTexture(Resource::IMG_PLAYER);
 
+	
 	render->Release();
+
+
 }
