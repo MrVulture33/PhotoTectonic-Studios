@@ -15,7 +15,39 @@ For in-depth information about this project, check out our [wiki](https://github
 TODO
 
 ## Game Controls
-TODO
+Left/Right Arrow keys -> Move
+Down Arrow key -> Crouch
+Up Arrow key -> Jump
+Space -> Attack
+E -> Move enemy to the right-side of the screen
+L -> Die
+F1 -> Debug Mode Hitboxes Textures on / Debug Mode Hitboxes Textures off / Debug Mode off
+F2 -> GodMode (player cannot take damage, can still die by cheating though!)
+F3 -> Game Over
+F4 -> Game End (Win screen)
+F5 -> Equip / Unequip shield
+Numpad 1 -> Change level to level 1
+Numpad 2 -> Change level to level 2
+Numpad 3 -> Change level to level 3
+Numpad 4 -> Change level to level 4
+Escape -> Quit playing / Quit menu
+Space -> Accept / Intro
+
+## Changes
+Prototype build 0.01v:
+
+Added Simon.
+Added animations:
+Attack
+Crouch
+Jump
+Walk
+Idle
+Added an enemy, unfinished.
+Added sounds, unfinished.
+Added levels 0 (3 stages), 1 (1 stage.
+Added items (shield, money bags).
+Added collisions, tiles, etc.
 
 ## Credits
 TODO
