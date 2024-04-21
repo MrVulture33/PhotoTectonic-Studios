@@ -75,4 +75,6 @@ Added items (shield, money bags).
 Added collisions, tiles, etc.
 
 ## Credits
-TODO
+MrVulture33 - Tomás Heurtley (tomasheurtley@gmail.com)
+
+JoseTurdeZarandieta - José Tur de Zarandieta ()
