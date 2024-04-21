@@ -21,7 +21,9 @@ Down Arrow key -> Crouch
 
 Up Arrow key -> Jump
 
-Space -> Attack
+Space -> Attack - Accept / Intro
+
+Escape -> Quit playing / Quit menu
 
 E -> Move enemy to the right-side of the screen
 
@@ -45,24 +47,31 @@ Numpad 3 -> Change level to level 3
 
 Numpad 4 -> Change level to level 4
 
-Escape -> Quit playing / Quit menu
-
-Space -> Accept / Intro
-
 ## Changes
 Prototype build 0.01v:
 
 Added Simon.
+
 Added animations:
+
 Attack
+
 Crouch
+
 Jump
+
 Walk
+
 Idle
+
 Added an enemy, unfinished.
+
 Added sounds, unfinished.
+
 Added levels 0 (3 stages), 1 (1 stage.
+
 Added items (shield, money bags).
+
 Added collisions, tiles, etc.
 
 ## Credits
