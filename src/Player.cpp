@@ -192,21 +192,21 @@ AppStatus Player::Initialise()
 	sprite->SetAnimationDelay((int)PlayerAnim::DYING_RIGHT, ANIM_DELAY);
 	for (i = 0; i < 2; ++i)
 	{
-		sprite->AddKeyFrame((int)PlayerAnim::DYING_RIGHT, { ((float)i + 6) * n, 0, n, h });
+		sprite->AddKeyFrame((int)PlayerAnim::DYING_RIGHT, { ((float)i + 7) * n, 0, n, h });
 	}
-	sprite->AddKeyFrame((int)PlayerAnim::DYING_RIGHT, { ((float)i + 6) * n, 0, n * 2, h });
+	sprite->AddKeyFrame((int)PlayerAnim::DYING_RIGHT, { ((float)i + 7) * n, 0, n * 2, h });
 
 	sprite->SetAnimationDelay((int)PlayerAnim::DYING_LEFT, ANIM_DELAY);
 	for (i = 0; i < 2; ++i)
 	{
-		sprite->AddKeyFrame((int)PlayerAnim::DYING_LEFT, { ((float)i + 6) * n, 0, -n, h });
+		sprite->AddKeyFrame((int)PlayerAnim::DYING_LEFT, { ((float)i + 7) * n, 0, -n, h });
 	}
 	// TOASK: Same problem here, animation goes rightway
-	sprite->AddKeyFrame((int)PlayerAnim::DYING_LEFT, { ((float)i + 6) * n, 0, -n * 2 , h });
+	sprite->AddKeyFrame((int)PlayerAnim::DYING_LEFT, { ((float)i + 7) * n, 0, -n * 2 , h });
 
 	// Walking towards front animation
 	sprite->SetAnimationDelay((int)PlayerAnim::WALKING_INTO, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::WALKING_INTO, { 10 * n, 0, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::WALKING_INTO, { 11 * n, 0, n, h });
 
 
 	// WHIP Attacking animations
