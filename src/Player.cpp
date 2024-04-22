@@ -158,35 +158,35 @@ AppStatus Player::Initialise()
 
 	// Jumping animations
 	sprite->SetAnimationDelay((int)PlayerAnim::FALLING_RIGHT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::FALLING_RIGHT, { 3 * n, 0, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::FALLING_RIGHT, { 4 * n, 0, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::FALLING_LEFT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::FALLING_LEFT, { 3 * n, 0, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::FALLING_LEFT, { 4 * n, 0, -n, h });
 
 	sprite->SetAnimationDelay((int)PlayerAnim::JUMPING_RIGHT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_RIGHT, { 3 * n, 0, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_RIGHT, { 4 * n, 0, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::JUMPING_LEFT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_LEFT, { 3 * n, 0, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_LEFT, { 4 * n, 0, -n, h });
 
 	sprite->SetAnimationDelay((int)PlayerAnim::LEVITATING_RIGHT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_RIGHT, { 3 * n, 0, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_RIGHT, { 4 * n, 0, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::LEVITATING_LEFT, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_LEFT, { 3 * n, 0, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_LEFT, { 4 * n, 0, -n, h });
 
 
 	sprite->SetAnimationDelay((int)PlayerAnim::FALLING_RIGHT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::FALLING_RIGHT_SHIELD, { 3 * n, h, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::FALLING_RIGHT_SHIELD, { 4 * n, h, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::FALLING_LEFT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::FALLING_LEFT_SHIELD, { 3 * n, h, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::FALLING_LEFT_SHIELD, { 4 * n, h, -n, h });
 
 	sprite->SetAnimationDelay((int)PlayerAnim::JUMPING_RIGHT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_RIGHT_SHIELD, { 3 * n, h, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_RIGHT_SHIELD, { 4 * n, h, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::JUMPING_LEFT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_LEFT_SHIELD, { 3 * n, h, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::JUMPING_LEFT_SHIELD, { 4 * n, h, -n, h });
 
 	sprite->SetAnimationDelay((int)PlayerAnim::LEVITATING_RIGHT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_RIGHT_SHIELD, { 3 * n, h, n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_RIGHT_SHIELD, { 4 * n, h, n, h });
 	sprite->SetAnimationDelay((int)PlayerAnim::LEVITATING_LEFT_SHIELD, ANIM_DELAY);
-	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_LEFT_SHIELD, { 3 * n, h, -n, h });
+	sprite->AddKeyFrame((int)PlayerAnim::LEVITATING_LEFT_SHIELD, { 4 * n, h, -n, h });
 
 	// Death animations
 	sprite->SetAnimationDelay((int)PlayerAnim::DYING_RIGHT, ANIM_DELAY);
