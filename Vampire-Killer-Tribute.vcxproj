@@ -104,8 +104,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\PC\Desktop\raylib\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\PC\Desktop\raylib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\PC\Desktop\raylib\include;C:\Users\tomash\Desktop\raylib\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\PC\Desktop\raylib\lib;C:\Users\tomash\Desktop\raylib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Users\joset\Downloads\PhotoTectonic-Studios-main %282%29\PhotoTectonic-Studios-main\include;$(IncludePath)</IncludePath>
