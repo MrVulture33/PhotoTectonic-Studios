@@ -255,9 +255,9 @@ AppStatus Player::Initialise()
 	sprite->AddKeyFrameOffset((int)PlayerAnim::ATTACKING_RIGHT_MORNING_STAR, { (float)22 * n, n * 5, n * 4 , h }, -n);
 
 	sprite->SetAnimationDelay((int)PlayerAnim::ATTACKING_CROUCHING_RIGHT_MORNING_STAR, ANIM_DELAY);
-	sprite->AddKeyFrameOffset((int)PlayerAnim::ATTACKING_CROUCHING_RIGHT_MORNING_STAR, { (float)14 * n, n * 7, n * 4 , h }, -2 * n);
-	sprite->AddKeyFrameOffset((int)PlayerAnim::ATTACKING_CROUCHING_RIGHT_MORNING_STAR, { (float)18 * n, n * 7, n * 4 , h }, -2 * n);
-	sprite->AddKeyFrameOffset((int)PlayerAnim::ATTACKING_CROUCHING_RIGHT_MORNING_STAR, { (float)22 * n, n * 7, n * 4 , h }, -2 * n);
+	sprite->AddKeyFrameOffset((int)PlayerAnim::ATTACKING_CROUCHING_RIGHT_MORNING_STAR, { (float)14 * n, n * 7, n * 4 , h }, -n);
+	sprite->AddKeyFrameOffset((int)PlayerAnim::ATTACKING_CROUCHING_RIGHT_MORNING_STAR, { (float)18 * n, n * 7, n * 4 , h }, -n);
+	sprite->AddKeyFrameOffset((int)PlayerAnim::ATTACKING_CROUCHING_RIGHT_MORNING_STAR, { (float)22 * n, n * 7, n * 4 , h }, -n);
 
 	sprite->SetAnimationDelay((int)PlayerAnim::ATTACKING_CROUCHING_RIGHT_WHIP, ANIM_DELAY);
 	sprite->AddKeyFrameOffset((int)PlayerAnim::ATTACKING_CROUCHING_RIGHT_WHIP, { (float)0 * n, n * 8, n * 3 , h }, -n);
