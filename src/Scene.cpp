@@ -60,12 +60,9 @@ AppStatus Scene::Init()
 		return AppStatus::ERROR;
 	}
 
-	//Create enemy
-	// this is what makes it spawn always, since it is creating
-	// an instance of an enemy on the right side of the screen
-	// TODO: Fix this
+
 	enemy = new Enemy({ WINDOW_WIDTH - ENEMY_PHYSICAL_WIDTH,WINDOW_HEIGHT - TILE_SIZE * 4 - 1 }, EnemyState::IDLE, EnemyLook::LEFT); //Esto es lo que hace que spawnee un zombie justo al principio, pero si lo cambio de sitio me peta
-	if (enemy == nullptr) //Lava u Pol <3
+	if (enemy == nullptr)
 	{
 		LOG("Failed to allocate memory for Enemy");
 		return AppStatus::ERROR;
