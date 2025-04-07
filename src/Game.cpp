@@ -33,7 +33,7 @@ AppStatus Game::Initialise(float scale)
     h = WINDOW_HEIGHT * scale;
 
     //Initialise window
-    InitWindow((int)w, (int)h, "Vampire Killer Tribute");
+    InitWindow((int)w, (int)h, "Space Invaders '98");
 
     //Initialise audio system
     InitAudioDevice();
